@@ -75,9 +75,9 @@ Il te faudra créer la vue correspondante.
 
 Modifie la vue de la page `/category` afin d'avoir un lien vers chaque catégorie.
 
-## 6. Page produit
+## 6. Détaild d'une pièce détachée
 
-Dans `CategoryController`, ajoute une route permettant d'accéder à un produit par son numéro de série, de la forme : `/category/{Nom-de-la-catégorie}/part/{Numéro-de-série}`
+Dans `CategoryController`, ajoute une route permettant d'accéder à une pièce détachée par son numéro de série, de la forme : `/category/{Nom-de-la-catégorie}/part/{Numéro-de-série}`
 
 Cette page te permettra d'afficher toutes les informations d'une pièce détachée : **numéro de série, nom, prix**.
 
@@ -91,20 +91,22 @@ Pas de panique, nous allons juste faire un faux lien d'ajout au panier, qui se c
 
 Dans la vue détaillée d'une pièce détachée, ajoute un lien vers la route `/category/buy/{Numéro-de-série}`, où le numéro de série est remplacé par la valeur de `serialNumber`.
 
-Crée la route correspondante dans `CategoryController` et afficher un Flash Messages de succès "Vous avez ajouté le produit {Numéro-de-série} à votre panier", puis redige vers la page `/category`
+Crée la route correspondante dans `CategoryController` et afficher un Flash Messages de succès "Vous avez ajouté le la pièce détachée {Numéro-de-série} à votre panier", puis redige vers la page `/category`
 
 > Utilise la méthode `addFlash` puis la méthode `redirectToRoute`
 
 ## 8. Mega promotion !
 
-Afin d'inciter les gens à commander sur ton site dès le lancement, tu vas créer un service te permettant d'appliquer une réduction à l'ensemble de tes produits.
+Afin d'inciter les gens à commander sur ton site dès le lancement, tu vas créer un service te permettant d'appliquer une réduction à l'ensemble de tes pièces détachées.
 
 Cependant, comme tu n'es pas encore sûr le la promotion à appliquer, tu préfères rendre cela paramétrable (pour l'ajuster si besoin).
 
 Crée le service `src/Service/SpecialOffer` et ajoute la méthode `apply` qui prendra en paramètre un prix.
 
-Ajoute dans ta classe la constante `PROMO` initialisée à `30` et modifie ta méthode `apply` afin d'appliquer la réduction `PROMO` au prix, puis d'en retourner le résultat.
+Ajoute dans ta classe la constante `PROMO` initialisée à `30` (correspondant à une réduction de 30%).
 
-Appelle ton service dans la page d'affichage des détails d'un produit.
+Modifie ta méthode `apply` afin d'appliquer la réduction `PROMO` au prix, puis d'en retourner le résultat.
+
+Appelle ton service dans la page d'affichage des détails d'une pièce détachée.
 
 > Bonus: plutôt que d'appeler ta promotion à partir d'une constante, tu peux l'appeler à partir d'un paramètre de service : https://symfony.com/doc/5.3/service_container.html#service-parameters
