@@ -100,7 +100,7 @@ Cette route affichera un Flash Messages de succès "Vous avez ajouté la pièce 
 
 > L'affichage des alertes est déjà configuré dans `base.html.twig`, pas besoin de t'en occuper.
 
-Modifie la vue de la page `/category/part/{Numéro-de-série}` afin d'avoir un lien l'ajout au panier.
+Modifie la vue de la page `/category/part/{Numéro-de-série}` afin d'avoir un lien vers l'ajout au panier.
 
 ## 8. Megas promotions !
 
