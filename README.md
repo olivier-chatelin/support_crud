@@ -22,6 +22,7 @@ Excécute les commandes *Symfony CLI* te permettant de :
 - exécuter la fixture déjà existante
 
 > Webpack ne sera pas utilisé dans ce checkpoint, pas besoin de t'en soucier !
+
 > De plus, Bootstrap est déjà configuré.
 
 ## 2. Les catégories
@@ -30,7 +31,7 @@ Ton site possède des catégories, caractérisées par un nom.
 
 Si tu as bien exécuté la migration et l'appel des fixtures, tu dois avoir des catégories déjà présentes en base de données.
 
-Crée un controller te pemettant d'afficher la vue `/category`, affichant la liste des catégories.
+Crée un controller pemettant d'afficher la vue `/category`, listant les catégories.
 
 Tu auras besoin de créer la vue correspondante.
 
@@ -48,7 +49,7 @@ Crée l'entité `Part` qui aura les propriétés suivantes :
 
 De plus, une pièce détachée sera reliée à une seule catégorie (mais une catégorie pourra posséder plusieurs pièces détachées).
 
-Ajoute la relation `category` correspondante à ton entité `Part`.
+Ajoute la relation `category` reliée à l'entité `Category`.
 La relation ne pourra pas être nulle, **sera bidirectionnelle** et sans suppression automatique des orphelins.
 
 Vérifie que `Part` est bien créé et que `Category` possède bien la propriété `$parts`.
@@ -96,6 +97,7 @@ Dans `CategoryController`, ajoute une route permettant de simuler l'ajout au pan
 Cette route affichera un Flash Messages de succès "Vous avez ajouté le la pièce détachée {Nom-de-la-pièce-détachée} à votre panier", puis redigera vers la page `/category`.
 
 > Utilise la méthode `addFlash` puis la méthode `redirectToRoute`
+
 > L'affichage des alertes est déjà configurée dans `base.html.twig`, pas besoin de t'en occuper.
 
 Modifie la vue de la page `/category/part/{Numéro-de-série}` afin d'avoir un lien l'ajout au panier.
@@ -115,3 +117,18 @@ Modifie ta méthode `apply` afin d'appliquer la réduction `PROMO` au prix, puis
 Appelle ton service dans la page d'affichage des détails d'une pièce détachée.
 
 > Bonus: plutôt que d'appeler ta promotion à partir d'une constante, tu peux l'appeler à partir d'un paramètre de service : https://symfony.com/doc/5.3/service_container.html#service-parameters
+
+## 9. Super bonus : les voitures
+
+Crée une entité `Car` qui aura les propriétés suivantes :
+
+- brand (VARCHAR(255), NOT NULL)
+- name (VARCHAR(255), NOT NULL)
+
+De plus, une voiture pourra posséder plusieurs pièces détachées et une pièce détachée pourra appartenir à plusieurs voitures.
+
+Ajoute la relation `parts` reliée à l'entité `Part`.
+
+Utilise la commande appropriée afin de générer un CRUD pour les voitures, puis vérifie que la route `/car` s'affiche bien.
+
+Actuellement, la création de voiture `/car/new` ne fonctionne pas : répare cela en modifiant `CarType` de façon à pouvoir sélectionner plusieurs pièces détachées.
