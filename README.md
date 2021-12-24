@@ -8,6 +8,10 @@ Exécute la commande *Symfony CLI* te permettant d'installer les dépendances av
 
 > N'exécute pas composer update !
 
+> Webpack ne sera pas utilisé dans ce checkpoint, pas besoin de t'en soucier !
+
+> De plus, Bootstrap est déjà configuré.
+
 Teste que le serveur se lance bien et affiche une page d'accueil.
 
 Bienvenue dans OscarWildo, ton site de vente de pièces détachées de voiture !
@@ -20,10 +24,6 @@ Excécute les commandes *Symfony CLI* te permettant de :
 - créer la base de données
 - exécuter la migration déjà existante
 - exécuter la fixture déjà existante
-
-> Webpack ne sera pas utilisé dans ce checkpoint, pas besoin de t'en soucier !
-
-> De plus, Bootstrap est déjà configuré.
 
 ## 2. Les catégories
 
@@ -94,7 +94,7 @@ Pas de panique, nous allons juste faire un faux lien d'ajout au panier, qui se c
 
 Dans `CategoryController`, ajoute une route permettant de simuler l'ajout au panier d'une pièce détachée, de la forme : `/category/buy/{Numéro-de-série}`.
 
-Cette route affichera un Flash Messages de succès "Vous avez ajouté le la pièce détachée {Nom-de-la-pièce-détachée} à votre panier", puis redigera vers la page `/category`.
+Cette route affichera un Flash Messages de succès "Vous avez ajouté la pièce détachée {Nom-de-la-pièce-détachée} à votre panier", puis redigera vers la page `/category`.
 
 > Utilise la méthode `addFlash` puis la méthode `redirectToRoute`
 
